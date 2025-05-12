@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MeteoApp Pro</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- fondo dinámico -->
+  <div id="dynamic-background"></div>
+
+  <div class="wrapper">
+    <header class="top-header">
+      <div class="header-content">
+        <div class="logo-container">
+          <h1 class="logo"><i class="fas fa-cloud-sun"></i> MeteoPro</h1>
+          <div class="location-chip">
+            <i class="fas fa-map-marker-alt"></i>
+            <span id="selectedCity">Seleccionar ubicación</span>
+          </div>
+        </div>
+        <div class="header-controls">
+          <button id="unitToggle" class="control-btn" title="Cambiar unidades">
+            <i class="fas fa-temperature-low"></i>
+          </button>
+          <button id="themeToggle" class="control-btn" title="Cambiar tema">
+            <i class="fas fa-moon"></i>
+          </button>
+
+        </div>
+      </div>
+    </header>
+
+    <section class="search-section">
+      <div class="search-container">
+        <div class="search-bar">
+          <input
+            type="text"
+            id="cityInput"
+            placeholder="Buscar ciudad..."
+            autocomplete="off"
+            aria-label="Buscar ciudad"
+          />
+          <button id="searchBtn" class="control-btn" title="Buscar">
+            <i class="fas fa-search"></i>
+          </button>
+          <button id="geolocationBtn" class="control-btn" title="Usar mi ubicación">
+            <i class="fas fa-location-crosshairs"></i>
+          </button>
+        </div>
+        <ul id="suggestions" class="suggestions-list"></ul>
+      </div>
+    </section>
+
+    <main class="dashboard">
+      <!-- Actual -->
+      <div class="current-weather-card">
+        <div class="current-main">
+          <canvas id="weatherCanvas" width="150" height="150"></canvas>
+          <div class="primary-info">
+            <h2 class="current-temp"><span id="currentTemp">--</span><span class="unit">C</span></h2>
+            <p class="weather-condition" id="weatherCondition">--</p>
+          </div>
+        </div>
+        <div class="current-details">
+          <div class="detail-item"><i class="fas fa-wind"></i> <span id="windSpeed">-- km/h</span></div>
+          <div class="detail-item"><i class="fas fa-tint"></i> <span id="humidity">--%</span></div>
+          <div class="detail-item"><i class="fas fa-thermometer-half"></i> <span id="feelsLike">--°</span></div>
+          <div class="detail-item"><i class="fas fa-eye"></i> <span id="visibility">-- km</span></div>
+        </div>
+      </div>
+      <div id="settingsPanel" class="settings-panel hidden">
+        <button id="closeSettings" class="close-btn">✕</button>
+        <h2>Ajustes</h2>
+        <!-- Aquí puedes meter controles: tema, unidad, etc. -->
+        <div>
+          <label>
+            <input type="checkbox" id="autoGeolocate" checked />
+            Geolocalizar al iniciar
+          </label>
+        </div>
+      </div>
+
+      <div id="loading"><i class="fas fa-spinner fa-spin"></i></div>
+
+      <!-- 24h Chart -->
+      <div class="chart-card">
+        <h3 class="chart-title"><i class="fas fa-chart-line"></i> Pronóstico 24h</h3>
+        <canvas id="temperatureChart"></canvas>
+      </div>
+
+      <!-- Horas -->
+      <div class="hourly-forecast">
+        <h3 class="section-title"><i class="fas fa-clock"></i> Próximas horas</h3>
+        <div class="hourly-scroll" id="hourlyContainer"></div>
+      </div>
+<!-- 7 días -->
+<div class="daily-forecast">
+  <h3 class="section-title"><i class="fas fa-calendar-day"></i> Próximos 7 días</h3>
+  <div id="dailyView" class="daily-scroll"></div>
+</div>
+
+
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="provider-info">
+          <span>Datos de OpenMeteo
+          </span>
+        </div>
+        <div class="app-info">
+          <span class="version">v1.0.0</span>
+          <span>&copy;2025 Alex Martinez</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- Popup de detalle diario -->
+
+<div id="popupOverlay" class="popup-overlay">
+  <div class="popup-content">
+    <button id="popupClose" class="popup-close">×</button>
+    <div id="popupDetails" class="popup-details"></div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
