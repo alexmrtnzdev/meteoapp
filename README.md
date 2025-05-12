@@ -1,6 +1,6 @@
 # 🌤️ MeteoApp Pro
 
-MeteoApp Pro es una aplicación web responsive y visualmente moderna que permite consultar el pronóstico del tiempo por horas y por días en cualquier ciudad del mundo. Incluye autocompletado con banderas, soporte para modo claro/oscuro, gráficos avanzados, sensación térmica, humedad, visibilidad y más.
+MeteoApp Pro es una aplicación web  que permite consultar el pronóstico del tiempo por horas y por días en cualquier ciudad del mundo. Incluye autocompletado con banderas, soporte para modo claro/oscuro, gráficos avanzados, sensación térmica, humedad, visibilidad y más.
 
 ## 🧠 Tecnologías utilizadas
 
@@ -21,7 +21,7 @@ MeteoApp Pro es una aplicación web responsive y visualmente moderna que permite
 - 🕐 Pronóstico por horas con scroll horizontal
 - 📅 Vista detallada para los próximos 7 días
 - 📌 Popup con información ampliada al hacer clic en un día
-- 💻 Completamente responsive (móvil y escritorio)
+- 💻 Preparada para entorno de escritorio
 
 Puedes ver la aplicación online aquí:
 https://alexmrtnzdev.github.io/meteoapp/index.html
